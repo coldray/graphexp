@@ -87,7 +87,7 @@ var graphioGremlin = (function(){
 		let gremlin_query_edges = edge_query + ".toList();";
 		console.log(edge_query);
 		if (edge_query === "") {
-			 gremlin_query_edges = "g.E().count()";
+			 gremlin_query_edges = "g.E().limit(1)";
 		}
 		console.log(gremlin_query_edges);
 	  let gremlin_query = gremlin_query_nodes + gremlin_query_edges + "[nodes,edges]";
