@@ -85,10 +85,9 @@ var graphioGremlin = (function(){
 		console.log(input_field);
 		console.log(edge_query);
 		let gremlin_query_nodes = input_field + ".toList();";
+		let gremlin_query_edges = edge_query + ".toList();";
 		if (edge_query === undefined) {
 			let gremlin_query_edges = "g.E().count()";
-		} else {
-			let gremlin_query_edges = edge_query + ".toList();";
 		}
 	  let gremlin_query = gremlin_query_nodes + gremlin_query_edges + "[nodes,edges]";
 
@@ -103,7 +102,7 @@ var graphioGremlin = (function(){
 			// var nodeQuery = create_single_command(gremlin_query_nodes);
 			var nodeQuery = gremlin_query_nodes;
 			var edgeQuery = gremlin_query_edges;
-		
+
 
 			console.log("Node query: "+nodeQuery);
 			console.log("Edge query: "+edgeQuery);
