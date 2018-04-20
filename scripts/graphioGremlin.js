@@ -100,6 +100,7 @@ var graphioGremlin = (function(){
 			var nodeQuery = gremlin_query_nodes;
 			var edgeQuery = gremlin_query_edges;
 			if (edge_query == "g.E().toList") {
+				console.log(edge_query);
 				edgeQuery = "g.E().count();"
 			}
 
