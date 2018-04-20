@@ -85,7 +85,7 @@ var graphioGremlin = (function(){
 		console.log(input_field);
 		console.log(edge_query);
 		let gremlin_query_nodes = input_field + ".toList();";
-		let gremlin_query_edges = "edges = g.V(nodes).aggregate('node').outE().as('edge').inV().toList();";
+		let gremlin_query_edges = edge_query + ".toList();";
 	  let gremlin_query = gremlin_query_nodes + gremlin_query_edges + "[nodes,edges]";
 
 		// while busy, show we're doing something in the messageArea.
@@ -99,7 +99,9 @@ var graphioGremlin = (function(){
 			// var nodeQuery = create_single_command(gremlin_query_nodes);
 			var nodeQuery = gremlin_query_nodes;
 			var edgeQuery = gremlin_query_edges;
-			edgeQuery = "g.E();"
+			if (edge_query == "g.()E.toList") {
+				edgeQuery = "g.E().count();"
+			}
 
 			console.log("Node query: "+nodeQuery);
 			console.log("Edge query: "+edgeQuery);
