@@ -301,6 +301,7 @@ var graphioGremlin = (function(){
 			if (query_type=='click') var center_f = 0; //center_f=0 mean no attraction to the center for the nodes
 			else if (query_type=='search') var center_f = 1;
 			else return;
+			console.log(graph);
 			graph_viz.refresh_data(graph,center_f,active_node);
 		}
 
