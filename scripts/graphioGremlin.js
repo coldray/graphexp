@@ -83,12 +83,13 @@ var graphioGremlin = (function(){
 		let input_field = $('#node_query').val();
 		let edge_query =  $('#edge_query').val();
 		console.log(input_field);
-		console.log(edge_query);
 		let gremlin_query_nodes = input_field + ".toList();";
 		let gremlin_query_edges = edge_query + ".toList();";
 		if (edge_query === undefined) {
 			let gremlin_query_edges = "g.E().count()";
 		}
+		console.log(edge_query);
+
 	  let gremlin_query = gremlin_query_nodes + gremlin_query_edges + "[nodes,edges]";
 
 		// while busy, show we're doing something in the messageArea.
