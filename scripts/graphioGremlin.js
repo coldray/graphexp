@@ -81,7 +81,7 @@ var graphioGremlin = (function(){
 
 	function search_query() {
 		let input_field = $('#node_query').val();
-		let edge_query = $('edge_query').val();
+		let edge_query =  $('#edge_query').val();
 		console.log(input_field);
 		console.log(edge_query);
 		let gremlin_query_nodes = input_field + ".toList();";
