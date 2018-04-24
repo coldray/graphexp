@@ -370,13 +370,30 @@ var graphioGremlin = (function(){
 				if (item) {
 					console.log(item.label);
 				}
-				if ((item && item.label == 'vertex') && idIndex(nodes,item.id) == null){ // if vertex and not already in the list
-					item.type = "vertex";
-					nodes.push(extract_infov3(item));
-				} else if ((item && item.label !== undefined ) && idIndex(links,item.id) == null){
-					item.type = "edge";
-					links.push(extract_infov3(item));
+				if (item) {
+					if ((item.label == 'demoMatch' ||
+					     item.label == 'demoGroup' ||
+						   item.label == 'demoPlayer'||
+						   item.label == 'demoBroadcast') && idIndex(nodes,item.id) == null) {
+								 item.type = "vertex";
+			 					nodes.push(extract_infov3(item));
+					} else if ((item.label == 'demoSameAs'   ||
+				              item.label == 'demoFriendOf' ||
+										  item.label == 'demoPlayM' ||
+										  item.label == 'demoCreateB' ||
+									    item.label == 'demoViewB' ||
+									    item.label == 'demoinGroup' ||) && idIndex(links,item.id) == null) {
+												item.type = "edge";
+												links.push(extract_infov3(item));
+					}
 				}
+				// if ((item && item.label == 'vertex') && idIndex(nodes,item.id) == null){ // if vertex and not already in the list
+				// 	item.type = "vertex";
+				// 	nodes.push(extract_infov3(item));
+				// } else if ((item && item.label !== undefined ) && idIndex(links,item.id) == null){
+				// 	item.type = "edge";
+				// 	links.push(extract_infov3(item));
+				// }
 			});
 		}
 	  return {nodes:nodes, links:links};
