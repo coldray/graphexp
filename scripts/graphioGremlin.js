@@ -87,8 +87,8 @@ var graphioGremlin = (function(){
 		//console.log(input_field)
 		console.log(search_type);
 
-		let gremlin_query_nodes = "";
-		let gremlin_query_edges = "";
+		let gremlin_query_nodes = "g.V().count()";
+		let gremlin_query_edges = "g.E().count()";
 
 		if (label_field) {
 			gremlin_query_nodes = label_field;
