@@ -41,82 +41,35 @@
 
 	</head>
 	<body>
-		<!--
-		<div class="header">
-			<div class="container">
-				<h1 class="header-heading">Graph Explorer v 0.6</h1>
-			</div>
-		</div>
-		-->
-		<!-- original div -->
-		<!-- <div class="nav-bar">
+
+		<div class="nav-bar">
 			<div class="nav container" id="search_bar">
 				<div class="nav inputs_container_top">
 					<div class="nav input_unit_container">
-						<label for="label_field">Node label:</label>
+						<label for="label_field">Node Query:</label>
 						<input name="label_field" id="label_field" value="" />
 					</div>
 					<div class="nav input_unit_container">
-						<label for="search_field">Node property:</label>
+						<label for="search_field">Edge Query:</label>
 						<input name="search_field" id="search_field" value="" />
 					</div>
-					<div class="nav input_unit_container">
-						<label class="nav input_label" for="search_value">Property value:</label>
-						<input name="search_value" id="search_value" value="" />
-					</div>
-					<div class="nav input_unit_container">
-						<label for="search_type">Type of search:</label>
-						<select name="search_type" id="search_type">
-							<option value="eq">Equals</option>
-							<option value="contains">Contains</option>
-						</select>
-					</div>
-					<div class="nav input_unit_container">
-						<label for="limit_field">Results limit:</label>
-						<input name="limit_field" id="limit_field" value="50" min="1" max="1000" type="number"/>
-					</div>
+
+
+
 				</div>
 				<div class="nav controls">
 					<button name="search query" onclick="search_query();">Search</button>
 				</div>
 			</div>
-			<div class="nav container" id="graph_bar">
-				<div class="nav inputs_container_bottom">
-					<div class="nav input_unit_container">
-						<label class="nav input_label" for="edge_filter">Traverse by edge:</label>
-						<input name="edge_filter" id="edge_filter" value="" />
-					</div>
-					<div class="nav input_unit_container">
-						<label class="nav input_label" for="nbLayers">Nb of layers</label>
-						<input type="number" id="nbLayers" min="1" max="128" onclick="set_nb_layers()">
-					</div>
-					<div class="nav input_unit_container">
-						<input type="checkbox" name="Freeze" id="freeze-in" />
-						<label class="nav input_label" for="freeze-in">Freeze exploration</label>
-					</div>
-					<div class="nav input_unit_container">
-						<input type="checkbox" name="showName_box" id="showName" onclick="graphShapes.show_names()"/>
-						<label class="nav input_label" for="showName">Show labels</label>
-					</div>
+
+
+
+
 				</div>
 				<div class="nav controls">
 					<button name="clear" onclick="graph_viz.clear();">Clear</button>
 				</div>
 			</div>
-		</div> -->
-		<!-- modified div -->
-		<div class = "nav-bar">
-			<div class = "nav-input-box">
-				<div class="nav input_unit_container">
-					<label for="input_field">Node Query:</label>
-					<input name="input_field" id="node_query" value="" />
-					<label for="input_field">Edge Query:</label>
-					<input name="input_field2" id="edge_query" value="" />
-
-						<button name="search query" onclick="search_query();">Search</button>
-				</div>
-			</div>
-
 		</div>
 		<div class="content">
 				<div class="main" id="main">
