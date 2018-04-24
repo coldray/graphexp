@@ -360,6 +360,21 @@ var graphioGremlin = (function(){
 	  return {nodes:nodes, links:links};
 	}
 
+	function isVertex(label) {
+		let type = ['demoMatch', 'demoGroup', 'demoPlayer','demoBroadcast'];
+		if (type.indexOf(label) != -1) {
+			return true;
+		}
+		return false;
+	}
+	function isEdge(label)  {
+		let type = ['demoSameAs', 'demoFriendOf', 'demoPlayM', 'demoCreateB', 'demoViewB', 'demoinGroup'];
+		if (type.indexOf(label) != -1) {
+			return true;
+		}
+		return false;
+	}
+
 	function arrange_datav3(data) {
 		// Extract node and edges from the data returned for 'search' and 'click' request
 		// Create the graph object
@@ -370,22 +385,12 @@ var graphioGremlin = (function(){
 				if (item) {
 					console.log(item.label);
 				}
-				if (item) {
-					if ((item.label == 'demoMatch' ||
-					     item.label == 'demoGroup' ||
-						   item.label == 'demoPlayer'||
-						   item.label == 'demoBroadcast') && idIndex(nodes,item.id) == null) {
-								 item.type = "vertex";
-			 					nodes.push(extract_infov3(item));
-					} else if ((item.label == 'demoSameAs'   ||
-				              item.label == 'demoFriendOf' ||
-										  item.label == 'demoPlayM' ||
-										  item.label == 'demoCreateB' ||
-									    item.label == 'demoViewB' ||
-									    item.label == 'demoinGroup' ||) && idIndex(links,item.id) == null) {
-												item.type = "edge";
-												links.push(extract_infov3(item));
-					}
+				if (isVertex(item.label)) {
+					item.type = "vertex";
+					nodes.push(extract_infov3(item));
+				} else if (isEdge(item.label)) {
+					item.type = "edge";
+					links.push(extract_infov3(item));
 				}
 				// if ((item && item.label == 'vertex') && idIndex(nodes,item.id) == null){ // if vertex and not already in the list
 				// 	item.type = "vertex";
