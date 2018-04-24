@@ -301,9 +301,9 @@ var graphioGremlin = (function(){
 			display_properties_bar(_edge_properties,'edges','Edge properties:');
 			display_color_choice(_node_properties,'nodes','Node color by:');
 		} else {
-			//console.log(data);
+			console.log(data);
 			var graph = arrange_data(data);
-			console.log(graph)
+			console.log(graph);
 			if (query_type=='click') var center_f = 0; //center_f=0 mean no attraction to the center for the nodes
 			else if (query_type=='search') var center_f = 1;
 			else return;
