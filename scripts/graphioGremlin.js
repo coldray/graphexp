@@ -292,6 +292,7 @@ var graphioGremlin = (function(){
 			$('#messageArea').html('');
 
 		}
+
 		if (query_type=='graphInfo'){
 			infobox.display_graph_info(data);
 			_node_properties = make_properties_list(data[1][0]);
@@ -380,15 +381,19 @@ var graphioGremlin = (function(){
 		// Create the graph object
 		var nodes=[], links=[];
 		console.log(data);
+		let num_vertex = 0;
+		let num_edge = 0;
 		for (var key in data){
 			data[key].forEach(function (item) {
 				if (item) {
 					console.log(item.label);
 				}
 				if (isVertex(item.label)) {
+					num_vertex++;
 					item.type = "vertex";
 					nodes.push(extract_infov3(item));
 				} else if (isEdge(item.label)) {
+					num_edge++;
 					item.type = "edge";
 					links.push(extract_infov3(item));
 				}
@@ -401,6 +406,9 @@ var graphioGremlin = (function(){
 				// }
 			});
 		}
+		$('#num_vertex').html("<p>Number of Vertex: "+num_vertex+ " </p>");
+		$('#num_edge').html("<p>Number of Vertex: "+num_edge+ " </p>");
+
 	  return {nodes:nodes, links:links};
 	}
 
